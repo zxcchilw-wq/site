@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>direzsmp | links</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+}
+
+/* ===== iOS 21 COLORS ===== */
+:root {
+  --bg1: #050814;
+  --bg2: #0b1630;
+  --a1: #0a84ff;
+  --a2: #6fd3ff;
+  --glow: rgba(10,132,255,.9);
+}
+
+body.red {
+  --bg1: #120000;
+  --bg2: #2b0000;
+  --a1: #ff3b30;
+  --a2: #ff7b70;
+  --glow: rgba(255,59,48,.9);
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* ===== LIQUID AURA ===== */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, var(--glow), transparent 60%);
+  filter: blur(90px);
+  opacity: .25;
+  animation: aura 22s ease-in-out infinite alternate;
+}
+
+body::after {
+  animation-duration: 30s;
+  opacity: .18;
+}
+
+@keyframes aura {
+  0% { transform: translate(-20%, -20%) scale(1); }
+  50% { transform: translate(15%, 20%) scale(1.25); }
+  100% { transform: translate(-10%, 0%) scale(1.05); }
+}
+
+/* ===== CARD ===== */
+.wrap {
+  width: 100%;
+  max-width: 390px;
+  padding: 20px;
+  z-index: 2;
+}
+
+.card {
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(28px) saturate(180%);
+  border-radius: 32px;
+  padding: 30px 22px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.12),
+    0 30px 60px rgba(0,0,0,.55),
+    0 0 40px var(--glow);
+  text-align: center;
+}
+
+/* ===== AVATAR ===== */
+.avatar {
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: url("avatar.jpg") center/cover no-repeat;
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.2),
+    0 0 40px var(--glow);
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+h1 {
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.sub {
+  font-size: 14px;
+  opacity: .75;
+  margin-bottom: 24px;
+}
+
+/* ===== iOS 21 BUTTONS ===== */
+.link {
+  position: relative;
+  display: block;
+  margin: 14px 0;
+  padding: 17px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--a1), var(--a2));
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.35),
+    0 14px 32px var(--glow);
+  overflow: hidden;
+  transition: transform .15s ease;
+}
+
+/* liquid shine */
+.link::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background: radial-gradient(circle, rgba(255,255,255,.45), transparent 60%);
+  animation: liquidBtn 7s linear infinite;
+  opacity: .35;
+}
+
+@keyframes liquidBtn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.link:active {
+  transform: scale(.95);
+}
+
+/* ===== THEME SWITCH ===== */
+.themes {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.theme-btn {
+  flex: 1;
+  padding: 13px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.18);
+  color: white;
+  backdrop-filter: blur(14px);
+}
+
+.footer {
+  margin-top: 18px;
+  font-size: 12px;
+  opacity: .6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <div class="card">
+    <div class="avatar"></div>
+    <h1>direzsmp</h1>
+    <div class="sub">iOS 21 liquid links</div>
+
+    <a class="link" href="https://tiktok.com/@direzsmpofficial">🎵 TikTok</a>
+    <a class="link" href="https://t.me/cl3ar1">💬 Telegram аккаунт</a>
+    <a class="link" href="https://t.me/gostiiik11">📢 Telegram канал</a>
+
+    <div class="themes">
+      <button class="theme-btn" onclick="setBlue()">🔵 Blue</button>
+      <button class="theme-btn" onclick="setRed()">🔴 Red</button>
+    </div>
+
+    <div class="footer">© direzsmp</div>
+  </div>
+</div>
+
+<script>
+function setBlue() {
+  document.body.classList.remove("red");
+}
+function setRed() {
+  document.body.classList.add("red");
+}
+</script>
+
+</body>
+</html>
